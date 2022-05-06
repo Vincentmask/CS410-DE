@@ -47,10 +47,11 @@ if __name__ == '__main__':
                 with open(fname, mode = 'a', encoding = 'utf-8') as f:
                     json.dump(out, f, indent = 4)
                     done = 1
-
+                       
                 #load and get ready to transform
                 with open(fname, mode = 'r', encoding='utf-8') as f:
                     obj = json.load(f)
+                data = pd.read_json(fname)
                 #Limit: check if date is unique
                 sr = data['OPD_DATE'].unique()
                 if(len(sr) == 1):
